@@ -1,0 +1,37 @@
+.btn:focus, .btn:active, button:focus, button:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+#image-gallery .modal-footer{
+  display: block;
+}
+
+.thumb{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+body{
+background: url(background.jpg);
+background-repeat: no-repeat;
+background-size: cover;
+}
+.transition {
+-webkit-transform: scale(1.2); 
+-moz-transform: scale(1.2);
+-o-transform: scale(1.2);
+transform: scale(1.2);
+}
+img.zoom {
+width: 100%;
+height: 200px;
+border-radius:5px;
+object-fit:cover;
+-webkit-transition: all .3s ease-in-out;
+-moz-transition: all .3s ease-in-out;
+-o-transition: all .3s ease-in-out;
+-ms-transition: all .3s ease-in-out;
+transition: all .3s ease-in-out;
+}
+

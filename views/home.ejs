@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- <link rel="stylesheet" type="text/css" href="/css/.css"> -->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <script src="https://kit.fontawesome.com/28a9896fa7.js"></script>
+    <style>
+        .ui {
+            position: absolute;
+            z-index: 1;
+            background: none;
+            color: white;
+            left: 20vw;
+            bottom: 15px;
+
+        }
+
+        
+        span {
+            color: black;
+            padding: 3% 5%;
+
+        }
+
+        .dots img {
+            object-fit: cover;
+            position: relative;
+            /* padding-top: 5vw; */
+
+        }
+        .brand{
+            position: absolute;
+            z-index: 11;
+            font-size: 40px;
+            padding-left: 40%;
+            color: white;
+
+        }
+        .cl{
+            padding: 0;
+        }
+        .brand:hover{
+            color: white;
+        }
+        h2 {
+                font-size: 3vw;
+            }
+
+            h3 {
+                font-size: 3vw;
+            }
+
+            h1 {
+                font-size: 4vw;
+            }
+
+        @media (max-width: 575px) {
+            .dots {
+                display: none;
+            }
+            .brand{
+                display:none
+            }
+
+            h2 {
+                font-size: 5vw;
+            }
+
+            h3 {
+                font-size: 5vw;
+            }
+
+            h1 {
+                font-size: 6vw;
+            }
+        }
+html,body{
+    margin:0;
+    height:100%;
+}
+#bg{
+  display:block;
+  width:100%; height:100%;
+  object-fit: cover;
+}
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <script>
+        $(document)
+      .ready(function () {
+        $("#bg").on("click",function(){
+    $("#bgd").hide(2000);
+        
+      })
+    })
+    </script>
+
+</head>
+
+<body>
+    <!-- <div id="bgd">
+    <img id="bg" style="position: absolute; z-index: 100;" src="../media/moksh1.jpg" alt="">
+
+</div> -->
+    <div>
+        <div class="row" style="width: 100%; margin:0;">
+            <div class="col-lg-5 col-md-5 col-sm-5 cl" style="background-color: black;">
+                <a class="brand" style="background: none;" href="/">Portfolio</a>
+                <div class="row dots">
+                    <img width="100%" height="695px" src="../media/grey1.png" alt="">
+                </div>
+
+            </div>
+            <div class="col-lg-7 col-md-7 col-sm-7">
+                <div class="row">
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark " style="width:-webkit-fill-available;">
+                        
+                        <button class="navbar-toggler m-auto btn btn-outline-light" type="button" data-toggle="collapse"
+                            data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span>Menu</span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav m-auto">
+                            <li class=" nav-item active">
+                                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/about">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/graphics">Graphics</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/video">Video</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/contact">Contact Me</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <div class="row">
+                    <img width="100%" height="639px" src="../media/moksh.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="jumbotron jumbotron-fluid ui">
+        <div class="container">
+            <h2 >MY NAME IS </h2>
+            <h1 >MOKSH SANGWAN </h1>
+            <h3 style="background-color: yellow; display: inline;"> <span><strong>I'M A DESIGNER</strong></span> </h3>
+        </div>
+    </div>
+   
+</body>
+
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+
+    <link rel="stylesheet" type="text/css" href="/stylesheets/home.css">
+
+    <link rel="stylesheet" type="text/css" href="/stylesheets/graphics.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+        integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+    <script src="https://kit.fontawesome.com/28a9896fa7.js"></script>
+
+
+    <script src="/lib/graphics.js"></script>
+
+</head>
+
+<body>
+
+    <div>
+
+        <div class="container-fluid" style="padding: 0;">
+
+            <!-- <div class="logo">
+            <h1><a href="/">MOKSH SANGWAN</a></h1>
+        </div> -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <!-- <a class="navbar-brand" href="home.html">Moksh Sangwan</a> -->
+                <button class="navbar-toggler m-auto btn btn-outline-light" type="button" data-toggle="collapse"
+                    data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span>Menu</span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav m-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about">About</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/graphics">Graphics<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="/video">Video</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contact">Contact Me</a>
+                        </li>
+                        <% if(currentUser){%>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Signed in as <%=currentUser.username%></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">Logout</a>
+                        </li>
+                        <%}%>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+
+    <div class="image-gallery">
+
+        <div class="container">
+            <div class="row">
+                <div class="row">
+                    <% graphics.forEach(function(graphic){%>
+                        <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                            <a class="thumbnail" href="#" data-image-id="" data-toggle="modal"
+                                data-title="<%= graphic.name %>" data-image="<%= graphic.image %>"
+                                data-target="#image-gallery">
+                                <img style="width: 100%;" class="img-thumbnail zoom" src="<%= graphic.thumbnail %>"
+                                    alt="Another alt text">
+                            </a>
+                            <% if(currentUser){%>
+                            <form id="delete-button" action="/graphics/<%= graphic._id%>?_method=DELETE" method="POST">
+                                <button class="btn btn-danger">DELETE</button>
+                            </form>
+                            <%}%>
+                    </div>
+                    <%})%>
+                            <% if(currentUser){%>
+                            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                                <a class="thumbnail" href="/graphics/new">
+                                    <img class="img-thumbnail zoom" src="../../media/plus1.jpg" alt="Another alt text">
+                                </a>
+                            </div>
+                            <%}%>
+                </div>
+
+
+                <div class="modal fade" id="image-gallery" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="image-gallery-title"></h4>
+                                <button type="button" class="close" data-dismiss="modal"><span
+                                        aria-hidden="true">×</span><span class="sr-only">Close</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+
+                                <iframe width="560px" height="500px" id="image-gallery-image" class="img-responsive col-md-12"  src="" frameborder="0" allowfullscreen="true"  allowtransparency="true"></iframe>
+                                <!-- <img id="image-gallery-image" class="img-responsive col-md-12" src=""> -->
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary float-left" id="show-previous-image"><i
+                                        class="fa fa-arrow-left"></i>
+                                </button>
+
+                                <button type="button" id="show-next-image" class="btn btn-secondary float-right"><i
+                                        class="fa fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <footer id="footer">
+
+        <a href="https://www.instagram.com/barebones03/" target="_blank"><i class="fab fa-instagram fa-2x"></i></a>
+        <a href="https://www.linkedin.com/in/moksh-sangwan-1b7219118/" target="_blank"><i class="fab fa-linkedin-in fa-2x"></i></a>
+        <a href="https://www.behance.net/mokshsangwan" target="_blank"><i class="fab fa-behance fa-2x"></i></a>
+        <a href="mailto: mokshclass10a@gmail.com" target="_blank"><i class="fas fa-envelope fa-2x"></i></a>
+    
+      </footer>
+</div>
+</body>
+
+</html>

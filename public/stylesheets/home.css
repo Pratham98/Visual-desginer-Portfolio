@@ -1,0 +1,33 @@
+#first{
+    padding:0;
+}
+
+.logo{
+    text-align: center;
+    padding:1%;
+    width:100%;
+    margin-bottom: 0%;
+    
+}
+
+.carousel-item{
+    width: 100%;
+    padding:0 20%;
+}
+#footer{
+	padding:0% 15%;
+	text-align: center;
+}
+#footer i{
+	margin:20px 10px;
+}
+body{
+    background: url(background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+
+
+
+
